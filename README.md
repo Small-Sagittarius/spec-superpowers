@@ -3,10 +3,9 @@
 Spec+Superpowers 融合工作流技能组：用 superpowers 的方法保证"想清楚和做对"，用 openspec 的制品保证"记清楚"。
 
 - 技能：`skills/` 下 20 个技能，均为可编辑普通文件
-- 工作流指南：`framework-guide.md`（superpowers 方法 × openspec 制品 完整说明）
 - 外部依赖：`grilling`（mattpocock/skills 官方全局版，用于设计/计划双决策门）、`openspec` CLI（制品生命周期管理）
 
-## 安装（官方 skills CLI）
+## 快速安装（官方 skills CLI）
 
 ```bash
 npx skills@latest add Small-Sagittarius/spec-superpowers
@@ -22,37 +21,35 @@ npx skills@latest add Small-Sagittarius/spec-superpowers
 npx skills@latest add Small-Sagittarius/spec-superpowers -a codex -a cursor
 ```
 
-### 单技能安装
+> 完整安装（5 个必选组件：openspec / 自建技能组 / mattpocock / android-pilot MCP / superpowers 规则块）与更新、版本约定见 [docs/users/01-安装与更新.md](./docs/users/01-安装与更新.md)。
 
-```bash
-npx skills@latest add Small-Sagittarius/spec-superpowers --skill=brainstorming
-```
+## 文档索引
 
-## 更新
+| 文档 | 内容 |
+|------|------|
+| [docs/users/01-安装与更新.md](./docs/users/01-安装与更新.md) | 使用者向：环境级安装：5 组件安装 / 更新 / 版本约定 / 安装 FAQ |
+| [docs/users/02-融合工作流.md](./docs/users/02-融合工作流.md) | 使用者向：融合工作流（superpowers 方法 × openspec 制品）：理念 + 从 0 接入 + 完整任务 |
+| [docs/users/03-mattpocock-skills.md](./docs/users/03-mattpocock-skills.md) | 使用者向：mattpocock 技能组使用指南（grilling 等） |
+| [docs/users/04-android-pilot-mcp.md](./docs/users/04-android-pilot-mcp.md) | 使用者向：android-pilot MCP 接入指南 |
+| [docs/maintainers/维护与发版.md](./docs/maintainers/维护与发版.md) | 维护者向：版本模型 / 发版流程 / CI 行为 / 应急恢复 |
+| [CLAUDE.md](./CLAUDE.md) | superpowers 规则块注入模板（sentinel 标记，随安装注入） |
 
-```bash
-npx skills update
-```
+## 文档结构与引用关系
 
-或更新单个技能：
+文档按受众分两类目录管理：
 
-```bash
-npx skills update brainstorming
-```
+- `docs/users/` — 使用者向（安装 / 更新 / 使用技能）
+- `docs/maintainers/` — 维护者向（版本管理 / 发版 / CI）
 
-## 版本约定
-
-- 技能 frontmatter 中 `version` 字段为技能自身版本号（当前 `1.0.0`），修改技能内容时必须递增
-- 仓库 release 用于整包版本记录：打 tag 时同步将所有技能 `version` 升到同一版本
-- `skills` CLI 通过 lock 文件 hash 追踪安装版本，`npx skills update` 按 hash 差异增量更新
-- 变更技能内容后：递增 `version` → 提交 → 打 tag → 推送，使用者 `npx skills update` 即可拉取
-
-## 外部依赖
-
-| 依赖 | 用途 | 安装 |
+| 文档 | 受众 | 引用 |
 |------|------|------|
-| `grilling`（mattpocock/skills） | 设计/计划 grilling 决策门 | `npx skills@latest add mattpocock/skills --skill=grilling` |
-| `openspec` CLI | 制品落盘/校验/归档 | `npm install -g @fission-ai/openspec@1.8.0` |
+| docs/users/01-安装与更新.md | 使用者 | → 02、03、04 |
+| docs/users/02-融合工作流.md | 使用者 | → 01 |
+| docs/users/03-mattpocock-skills.md | 使用者 | （独立） |
+| docs/users/04-android-pilot-mcp.md | 使用者 | （独立） |
+| docs/maintainers/维护与发版.md | 维护者 | → docs/users/01（版本约定） |
+
+> 使用者文档之间互相引用，均在同一目录内；维护者文档引用使用者文档的版本约定，跨目录用 `../users/`。
 
 ## 技能清单（20）
 

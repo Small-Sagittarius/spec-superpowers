@@ -126,7 +126,7 @@ digraph brainstorming {
 设计获批后按前置条件选择落盘方式：
 
 - **openspec 落盘**（检测到 openspec 时）：
-  1. `openspec new change <name>` — 无则创建。**命名规则（1.8.0）**：只限小写字母/数字/连字符，日期前缀可用（如 `2026-08-13-getuuid-jsbridge`）；1.6.0 曾要求字母开头。建议 `<topic>` 或 `<capability>-<topic>`。已存在同名会报 `already exists`（无 `--force`，非交互下不询问）→ 直接复用已有目录，跳过 new change
+  1. `openspec new change <name>` — 无则创建。**命名规则（1.8.0）**：只限小写字母/数字/连字符，日期前缀可用（如 `2026-08-13-getuuid-jsbridge`）。建议 `<topic>` 或 `<capability>-<topic>`。已存在同名会报 `already exists`（无 `--force`，非交互下不询问）→ 直接复用已有目录，跳过 new change
   2. `openspec status --change <name> --json` — 读 `applyRequires`/`artifacts` 依赖顺序，确认 proposal/design 为 ready
   3. `openspec instructions proposal --change <name> --json` + `openspec instructions design --change <name> --json` — 取模板、规则、依赖；JSON 含 `instruction`（规则/约束，不要写入文件）、`template`（制品模板）、`dependencies`（依赖）
   4. 按模板写 `openspec/changes/<name>/proposal.md`（what & why）+ `design.md`（how）；design.md 末尾追加 `## 已获用户批准\n日期：YYYY-MM-DD`
