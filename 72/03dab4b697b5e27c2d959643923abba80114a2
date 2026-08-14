@@ -1,0 +1,19 @@
+docs/mattpocock-skills-使用指南.md
+  s_288244feb263a8::t_18bd376dccb980 1-136
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "7203dab4b697b5e27c2d959643923abba80114a2",
+  "prompts": {},
+  "sessions": {
+    "s_288244feb263a8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f323ac35-46b7-4e01-ba98-fa4cb9f212b5",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "pengzhou <pengzhou@syncore.space>"
+    }
+  }
+}
